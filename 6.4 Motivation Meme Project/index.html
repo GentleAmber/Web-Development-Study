@@ -1,0 +1,74 @@
+<!-- 
+  TODO: Create a motivational post website.
+Style it how ever you like. 
+Look at the goal image for inspiration.
+But it must have the following features:
+1. The main h1 text should be using the Regular Libre Baskerville Font from Google Fonts:
+  https://fonts.google.com/specimen/Libre+Baskerville
+2. The text should be white and background black.
+3. Add your own image into the images folder inside assets. It should have a 5px white border.
+4. The text should be center aligned.
+5. Create a div to contain the h1, p and img elements. Adjust the margins so that the image and text are centered on the page. 
+  Hint: You horizontally center a div by giving it a width of 50% and a margin-left of 25%.
+  Hint: Set the image to have a width of 100% so it fills the div. 
+6. Read about the text-transform property on MDN docs to make the h1 uppercase with CSS.
+  https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inspiration</title>
+  <style>
+    html{
+      background-color: black;
+    }
+
+    div{
+      width: 50%;
+      margin-left: 25%;
+    }
+
+    .libre-baskerville-regular {
+      font-family: "Libre Baskerville", serif;
+      font-weight: 400;
+      font-style: normal;
+      color: white;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    #image{
+      border: 5px, solid, white;
+      width: 70%;
+      margin-left: 15%;
+    }
+
+    p{
+      color: white;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    /* #imageTest{
+      width: 50%;
+      margin-left: 25%;
+    } */
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <img src="./assets/images/3464ad1c33c983b87d66f14b092f11ee.jpg" alt="A man with a confused, eyebrows-frowning face" 
+    id="image"/>
+    <h1 class="libre-baskerville-regular">What I Look Like</h1>
+    <p>being an ESL and listening to a person speaking with a heavy accent</p>
+  </div>
+  <!-- <img src="./assets/images/3464ad1c33c983b87d66f14b092f11ee.jpg" alt="A man with a confused, eyebrows-frowning face"
+  id="imageTest" /> -->
+  
+</body>
+</html>
