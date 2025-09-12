@@ -374,12 +374,25 @@
   <h2 class="total-count">Total Countries: <%=total%>
   </h2>
   <script>
-    const country_codes = "<%= countries %>".split(",") 
-    console.log(typeof ("<%= countries %>"))
+    console.log("<%= countries %>");
+    const country_codes = "<%= countries %>".split(",");
+    console.log(country_codes);
+    let countInvalidCountryCode = 0;
+    
     country_codes.forEach(code => {
-      document.getElementById(code).style.fill = 'teal'
+      const el = document.getElementById(code);
+      if (el) {
+        el.style.fill = 'teal';
+      } else {
+        console.warn(`No element found with id: ${code}`);
+        countInvalidCountryCode++;
+      }
     });
 
+    const totalOriginal = <%= total %>;
+    const newTotalCountryNum = totalOriginal - countInvalidCountryCode;
+
+    document.querySelector(".total-count").innerHTML = "Total Countries: " + newTotalCountryNum;
   </script>
 </body>
 

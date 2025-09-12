@@ -5,20 +5,22 @@ import pg from "pg";
 const app = express();
 const port = 3000;
 
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "123456",
+const connectionConfig = {
+  user: 'postgres',
+  password: 'wkx',
+  host: 'localhost',
   port: 5432,
-});
+  database: 'world',
+}
+
+const db = new pg.Client(connectionConfig);
 db.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 async function checkVisisted() {
-  const result = await db.query("SELECT country_code FROM visited_countries");
+  const result = await db.query("SELECT country_code FROM visited_country;");
 
   let countries = [];
   result.rows.forEach((country) => {
@@ -46,7 +48,7 @@ app.post("/add", async (req, res) => {
     const data = result.rows[0];
     const countryCode = data.country_code;
 
-    await db.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [
+    await db.query("INSERT INTO visited_country (country_code) VALUES ($1)", [
       countryCode,
     ]);
     res.redirect("/");
